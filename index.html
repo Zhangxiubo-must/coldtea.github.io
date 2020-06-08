@@ -181,7 +181,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/09/%E7%9B%B4%E6%8E%A5new%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%9B%B4%E6%96%B0%E7%9A%84%E5%90%97/" class="post-title-link" itemprop="url">直接new就可以更新的吗</a>
+            <a href="/2020/04/09/%E7%9B%B4%E6%8E%A5new%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%9B%B4%E6%96%B0%E7%9A%84%E5%90%97/" class="post-title-link" itemprop="url">动态规划和小猪的时间管理</a>
         </h2>
 
         <div class="post-meta">
@@ -193,6 +193,13 @@
 
               <time title="创建时间：2020-04-09 23:40:12" itemprop="dateCreated datePublished" datetime="2020-04-09T23:40:12+08:00">2020-04-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-08 10:48:18" itemprop="dateModified" datetime="2020-06-08T10:48:18+08:00">2020-06-08</time>
+              </span>
 
           
 
@@ -205,7 +212,83 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="改编自"><a href="#改编自" class="headerlink" title="改编自"></a>改编自</h1> <table><tr><td bgcolor=PowderBlue>改编自洛谷题库 P1048采药  https://www.luogu.com.cn/problem/P1048</td></tr></table>
+
+
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><table><tr><td bgcolor=#FFF8DC><font size="3">小猪是一名天赋异禀的运动员，从小被父母送进体校进行双人运动培训（例如羽毛球、乒乓球等），小猪在漫长的9年训练过程中逐渐丧失了对双人运动的乐趣。</td></tr></table>
+<table><tr><td bgcolor=#FFF8DC><font size="3">渐渐地，小猪发现自己喜欢的其实是多人运动（例如篮球、足球、王者荣耀等）。但由于害怕教练的责罚，小猪只能偷偷在凌晨的短暂时间内，安排自己的多人运动。</td></tr></table>
+
+
+<table><tr><td bgcolor=#FFF8DC><font size="3">而且由于教练行踪不定，每晚能进行多人运动的时间都是不确定的。小猪进行不同的多人运动可以获得不同的快乐点，例如打篮球、足球、王者荣耀，甚至不同段位的多人运动都会产生不同的快乐点h，并且不同的运动所需要的时间t也不同。</td></tr></table>
+
+<table><tr><td bgcolor=#FFF8DC><font size="3">现在小猪一个晚上有多种可选择的多人运动，聪明的你能帮助小猪在晚上有限的时间点内，完成最佳时间管理吗？</font><br /></td></tr></table>
+
+
+<p> <img src="https://img-blog.csdnimg.cn/20200427172932972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p4YmRzZw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200427173220350.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p4YmRzZw==,size_16,color_FFFFFF,t_70" alt="时间管理是一门学问"></p>
+<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>在有限的时间T内，给定N个多人运动，每个多人运动有以下特点：<br><img src="https://img-blog.csdnimg.cn/20200427132356188.bmp" alt="在这里插入图片描述"><br>在T时间内安排合理的运动，使得小猪能获得总和最多的快乐点</p>
+<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入<img src="https://img-blog.csdnimg.cn/20200427133522858.bmp?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p4YmRzZw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></h1><h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><p>一个整数H，表示小猪可以获得的快乐最大值</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><p>240 5<br>20 399<br>221 4500<br>220 4120<br>45 5<br>300 558</p>
+<h5 id="240-5（小猪有5个可选择多人运动）"><a href="#240-5（小猪有5个可选择多人运动）" class="headerlink" title="240 5（小猪有5个可选择多人运动）"></a>240 5（小猪有5个可选择多人运动）</h5><h5 id="20-390-（王者青铜局，20分钟结束战斗，获得快乐399）"><a href="#20-390-（王者青铜局，20分钟结束战斗，获得快乐399）" class="headerlink" title="20 390 （王者青铜局，20分钟结束战斗，获得快乐399）"></a>20 390 （王者青铜局，20分钟结束战斗，获得快乐399）</h5><h5 id="221-4500（打篮球，虽然要221分钟，但是可以获得4500快乐）"><a href="#221-4500（打篮球，虽然要221分钟，但是可以获得4500快乐）" class="headerlink" title="221 4500（打篮球，虽然要221分钟，但是可以获得4500快乐）"></a>221 4500（打篮球，虽然要221分钟，但是可以获得4500快乐）</h5><h5 id="220-4120（打母猪焊接，虽然要220分钟，但是可以获得4120快乐）"><a href="#220-4120（打母猪焊接，虽然要220分钟，但是可以获得4120快乐）" class="headerlink" title="220 4120（打母猪焊接，虽然要220分钟，但是可以获得4120快乐）"></a>220 4120（打母猪焊接，虽然要220分钟，但是可以获得4120快乐）</h5><h5 id="45-5（打王者荣耀荣耀局，时间长，因为被吊打所以没有什么快乐）"><a href="#45-5（打王者荣耀荣耀局，时间长，因为被吊打所以没有什么快乐）" class="headerlink" title="45 5（打王者荣耀荣耀局，时间长，因为被吊打所以没有什么快乐）"></a>45 5（打王者荣耀荣耀局，时间长，因为被吊打所以没有什么快乐）</h5><h5 id="300-558-（崩300分钟的迪，快乐558）"><a href="#300-558-（崩300分钟的迪，快乐558）" class="headerlink" title="300 558 （崩300分钟的迪，快乐558）"></a>300 558 （崩300分钟的迪，快乐558）</h5><h3 id="标准答案-4510"><a href="#标准答案-4510" class="headerlink" title="标准答案 4510"></a>标准答案 4510</h3><h1 id="分析问题和找到解法"><a href="#分析问题和找到解法" class="headerlink" title="分析问题和找到解法"></a>分析问题和找到解法</h1><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><table><tr><td bgcolor=#F8F8FF><font size="3"><font face="宋体">首先 时间是有限的，所以显然我们只能在诸多可能的运动中选择
+如果小猪很贪心，直接进行快乐点最多的运动，那么小猪有没有可能直接获得最多的快乐呢？</font>
+</td></tr></table>
+
+
+
+<p><font face="宋体"><strong>答案是有可能的，但是不能代表全部的情况。</strong> 例如上面的例子，显然直接去打篮球是最多快乐的，但是实际上这个决策只能带来4500的快乐，而比不上打一局青铜王者和母猪焊接一起的4510点快乐来的多，因为<strong>浪费了</strong>19分钟无法安排任何活动。</p>
+<table><tr><td bgcolor=#F8F8FF><font size="3">那么</td></tr></table>
+如果我们采取价值/时间来决策呢，我们会发现还是打篮球最划算，因为打篮球的价值/时间比是最多的，**然而我们无法达到最多的4510点快乐**。</font>
+
+<h3 id="为什么呢？"><a href="#为什么呢？" class="headerlink" title="为什么呢？"></a>为什么呢？</h3><p>我们对问题进行分析，我们<strong>最终的状态</strong>是什么？<br><strong>最终的状态：</strong><br><strong>时间已经达到开始所给的T分钟</strong><br>那么为什么<strong>效率最高</strong>的解法——价值/时间最高的方法<strong>不是最好</strong>的呢？<br>因为比如上面的例子，<strong>有时间被浪费了</strong></p>
+<h4 id="那怎么办？"><a href="#那怎么办？" class="headerlink" title="那怎么办？"></a>那怎么办？</h4><p><strong>我们需要换个角度来思考了</strong><br><strong>最终的这个状态是怎么来的？</strong><br>很显然，最后的240分钟是一分钟一分钟地从0分钟来的，<br><del>正如伟大的哲学家所说，劳力士和电子手表，时间是一样转的</del><br><strong>不论采取那种组合时间的方式，时间一定会流向终点</strong><br>比如上述例子，达到最终时间的前一步，一定是做完某一个运动之前的时间，或者一分钟前（无法做运动）<img src="https://img-blog.csdnimg.cn/20200427180506115.bmp?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p4YmRzZw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<table><tr><td bgcolor=#F8F8FF><font size="3">如图，可见要达到最终状态，上一个状态可以是前一分钟（这样什么运动都做不了）</td></tr></table>
+<table><tr><td bgcolor=#F8F8FF><font size="3">也可以从19分钟开始做（这样可以穿插安排一个打篮球或者母猪焊接）</td></tr></table>
+
+<table><tr><td bgcolor=#F8F8FF><font size="3">也可以从18分钟开始做（还是可以穿插一个打篮球或者母猪焊接）</td></tr></table>
+<table><tr><td bgcolor=#F8F8FF><font size="3">也可以从4分钟开始做（可以打篮球或者母猪焊接）</td></tr></table>
+<table><tr><td bgcolor=#F8F8FF><font size="3">也可以从20分钟开始做(可以是母猪焊接)</td></tr></table>
+<table><tr><td bgcolor=#F8F8FF><font size="3">因为已经是最后一步了，所以我们无脑选择这一步最优化的策略，也就是原有的快乐值+现在的快乐值之后总和最多
+
+
+
+
+
+
+
+<h3 id="那么说了这么说，能保证这种做法达到的快乐值最多吗"><a href="#那么说了这么说，能保证这种做法达到的快乐值最多吗" class="headerlink" title="那么说了这么说，能保证这种做法达到的快乐值最多吗"></a>那么说了这么说，能保证这种做法达到的快乐值最多吗</h3><h3 id="能！！！"><a href="#能！！！" class="headerlink" title="能！！！"></a>能！！！</h3><p>因为，<strong>如果我们能保证前一步的所有决策都是最优化的决策</strong>（也就是前一步的每一分钟都是最优化的决策），那么我们可以确信，<strong>我们现在的决策就是最优的</strong>。</p>
+<h4 id="换句话说，确保过去是最优解，当前是最优解，那么就能确保未来是最优解。"><a href="#换句话说，确保过去是最优解，当前是最优解，那么就能确保未来是最优解。" class="headerlink" title="换句话说，确保过去是最优解，当前是最优解，那么就能确保未来是最优解。"></a>换句话说，确保过去是最优解，当前是最优解，那么就能确保未来是最优解。</h4><h4 id="但是现在的过去相当于过去的现在，所以过去要保证过去的过去是最优化的，过去的过去要保证过去的过去的过去要是最优化的。"><a href="#但是现在的过去相当于过去的现在，所以过去要保证过去的过去是最优化的，过去的过去要保证过去的过去的过去要是最优化的。" class="headerlink" title="但是现在的过去相当于过去的现在，所以过去要保证过去的过去是最优化的，过去的过去要保证过去的过去的过去要是最优化的。"></a>但是现在的过去相当于过去的现在，所以过去要保证过去的过去是最优化的，过去的过去要保证过去的过去的过去要是最优化的。</h4><h4 id="禁止套娃-层层套娃，直到不能再套——回到了原点（在本题中就是回到了时间为0的位置）"><a href="#禁止套娃-层层套娃，直到不能再套——回到了原点（在本题中就是回到了时间为0的位置）" class="headerlink" title="禁止套娃  层层套娃，直到不能再套——回到了原点（在本题中就是回到了时间为0的位置）"></a><del>禁止套娃</del>  层层套娃，直到不能再套——回到了原点（在本题中就是回到了时间为0的位置）</h4><p>时间为0，快乐值为0，这一状态有着绝对正确的性质<br><img src="https://img-blog.csdnimg.cn/20200427182123464.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p4YmRzZw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200427182159103.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p4YmRzZw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><p>核心就是 我是谁，我从哪里来，我到哪里去，把大问题无限分割<br>只要保证每一个小问题绝对正确，那么大问题绝对正确<br><img src="https://img-blog.csdnimg.cn/20200427182344260.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p4YmRzZw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>小学课文《走一步，再走一步》深刻挖掘了这种思想</p>
+<h1 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h1><p><img src="https://img-blog.csdnimg.cn/20200427185358766.bmp" alt="在这里插入图片描述"></p>
+<h1 id="这样做可能遇到的问题？"><a href="#这样做可能遇到的问题？" class="headerlink" title="这样做可能遇到的问题？"></a>这样做可能遇到的问题？</h1><p><strong>这样子可能会遇到重复的问题，也就是说，一个“很好的”运动可能会被用多次</strong></p>
+<h1 id="做一点小改进吧"><a href="#做一点小改进吧" class="headerlink" title="做一点小改进吧"></a>做一点小改进吧</h1><p>因为如果决策中的运动一样，那么进行这些运动的顺序其实是没有关系的，所以我们可以利用这个特性，把最终的状态定义为<br><strong>当了解到第N个运动的时候，最佳的决策</strong><br>也就是说，我们从第一个可能的运动开始遍历，第1个第2个、一直到第N个运动，保证了解到第K个可能的运动的时候我们的决策始终是最佳的</p>
+<h1 id="那么我们的状态转移方程就是"><a href="#那么我们的状态转移方程就是" class="headerlink" title="那么我们的状态转移方程就是"></a>那么我们的状态转移方程就是</h1><p><img src="https://img-blog.csdnimg.cn/20200427201445418.bmp" alt="在这里插入图片描述"></p>
+<table><tr><td bgcolor=#F8F8FF><font size="3">我们来结合具体例子看一看
+首先小猪来了解王者青铜局</td></tr></table>
+<table><tr><td bgcolor=#F8F8FF><font size="3">由于当前时间充裕，所以此时dp[1][20]之后的比如
+dp[1][21]   dp[1][22]  dp[1][23]
+一直到 dp[1][240] 都是20</td></tr></table>
+<table><tr><td bgcolor=#F8F8FF><font size="3">我们取dp[1][240]出来，解释为此时最佳决策</td></tr></table>
+<table><tr><td bgcolor=#F8F8FF><font size="3">然后我们再来看下一个运动打篮球</td></tr></table>
+<table><tr><td bgcolor=#F8F8FF><font size="3">也可以从20分钟开始做(可以是母猪焊接)</td></tr></table>
+
+
+
+
+<p>**我们来对比一下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max(dp[<span class="number">1</span>][<span class="number">221</span>] (<span class="number">399</span>), dp[<span class="number">1</span>][<span class="number">19</span>]+va[<span class="number">2</span>] (<span class="number">0</span>+<span class="number">4500</span>))</span><br></pre></td></tr></table></figure>
+
+
+<p>显然dp[2][221]应该被更新为后者**</p>
+<table><tr><td bgcolor=#F8F8FF><font size="3">也就是说，对于小猪看到打篮球这个第二个运动的时候，小猪发现，原来比起打王者荣耀，还是打篮球更赚喔（小猪是不会考虑以后的，他只考虑当下）</td></tr></table>
+
+<p>所以当小猪看到可以打母猪焊接的时候，小猪发现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比起dp[<span class="number">2</span>][<span class="number">240</span>],更加应该被更新为 dp[<span class="number">2</span>][<span class="number">20</span>](已经打了王者)+vi[<span class="number">3</span>](母猪焊接)</span><br></pre></td></tr></table></figure>
+<p><strong>之后采取任何决策都不会比这个决策更好了</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20200427213933845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p4YmRzZw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="C-代码实现"><a href="#C-代码实现" class="headerlink" title="C++代码实现"></a>C++代码实现</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ios std::ios::sync_with_stdio(false)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> va[<span class="number">105</span>];<span class="comment">//用来存储运动相应的价值</span></span><br><span class="line"><span class="keyword">int</span> ti[<span class="number">105</span>];<span class="comment">//用来存存储运动相应的时间</span></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">1050</span>][<span class="number">1050</span>];<span class="comment">//用来存储进行到第t1时间时，前一状态的t2时间最大价值</span></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios;</span><br><span class="line">	<span class="keyword">int</span> T, N;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; T &gt;&gt; N;<span class="comment">//输入时间t和可选择的项目n</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; ti[i] &gt;&gt; va[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= N; k++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt;= T; t++)</span><br><span class="line">		&#123;</span><br><span class="line">			dp[k][t] = dp[k - <span class="number">1</span>][t];<span class="comment">//先假设上一个决策即使到了现在还是对的</span></span><br><span class="line">			<span class="keyword">if</span> (t - ti[k] &gt;= <span class="number">0</span>)</span><br><span class="line">				dp[k][t] = max(dp[k][t], dp[k - <span class="number">1</span>][t - ti[k]] + va[k]);<span class="comment">//如果加上现在决策更好那就换</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= T; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; dp[i][j] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; dp[N][T] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="我是冷萃泡泡茶，下期再会"><a href="#我是冷萃泡泡茶，下期再会" class="headerlink" title="我是冷萃泡泡茶，下期再会"></a>我是冷萃泡泡茶，下期再会</h2>
       
     </div>
 
